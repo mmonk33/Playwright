@@ -8,8 +8,8 @@ exports.PlaywrightDevPage = class PlaywrightDevPage {
      */
     constructor(page) {
         this.page = page;
-        this.getTab = page.locator('span.eos-badge > span', {hasText: 'Вкладка 7'});
-        this.getText = page.locator('div.eos-tabs-tabpane:nth-child(7)');
+        this.getTab = page.frameLocator('#storybook-preview-iframe').locator('span.eos-badge > span', {hasText: 'Вкладка 7'});
+        this.getText = page.frameLocator('#storybook-preview-iframe').locator('div.eos-tabs-tabpane:nth-child(7)');
     }
 
     async goto(url) {
