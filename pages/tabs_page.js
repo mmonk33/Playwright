@@ -1,23 +1,15 @@
-const Page = require ('./base_page');
+const { BasePage } = require('../pages/base_page');
+class TabPage extends BasePage{
 
-class LoginPage extends Page{
-
-    //page locators:
-    get inputUsername() { return $('#txtUsername') }
-    get inputPassword() { return $('#txtPassword') }
-    get loginBtn() { return $('#btnLogin') }
-
-    //page actions:
-    //to open a URL
-    async open () {
-        await super.open('/')
+    constructor(page) {
+        super(page)
+        this.getTab = page.frameLocator('#storybook-preview-iframe').locator('span.eos-badge > span', {hasText: 'Вкладка 7'});
+        this.getText = page.frameLocator('#storybook-preview-iframe').locator('div.eos-tabs-tabpane:nth-child(7)');
     }
-    //to enter username and password into login form and click login button
-    async login (username,password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.loginBtn.click();
+
+    async tab7_click() {
+        await this.getTab.click();
     }
 }
 
-module.exports = new LoginPage();
+module.exports = {TabPage};
