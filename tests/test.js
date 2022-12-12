@@ -7,7 +7,7 @@ test('Test 1. Tabs', async ({ page }) => {
     const Tabs_page = new TabPage(page);
     await Tabs_page.goto('http://89.189.152.235:1337/?path=/story/eos-tabs--default');
     await Tabs_page.tab7_click()
-    await expect(Tabs_page.getText).toContainText('Текст 7');
+    await expect(Tabs_page.get7TabText).toContainText('Текст 7');
 });
 test('Test 2. Timepicker', async ({ page }) => {
     const TimePickerPage = new TimePicker(page);

@@ -13,7 +13,6 @@ class TimePicker extends BasePage{
     async goto(url) {
         await this.page.goto(url);
     }
-
     async drop_down_arrow_click() {
         await this.getDropDownListArrow.click();
     }
