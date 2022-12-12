@@ -9,6 +9,7 @@ class TimePicker extends BasePage{
         this.ButtonSubmit = page.frameLocator('#storybook-preview-iframe').getByRole('button', { name: 'Submit' });
         this.getMessage = page.frameLocator('#storybook-preview-iframe').locator('span.eos-message__content');
         this.getSelectedTime = page.frameLocator('#storybook-preview-iframe').locator('input#basic_timepicker')
+        this.getTime = page.frameLocator('#storybook-preview-iframe').getByPlaceholder('Введите время')
 
     }
     async goto(url) {
@@ -26,7 +27,10 @@ class TimePicker extends BasePage{
     }
     async current_time() {
         const today = new Date();
-        return today.getHours() + ":" + today.getMinutes();
+        let currentHours;
+        currentHours = today.getHours();
+        currentHours = ("0" + currentHours).slice(-2);
+        return currentHours + ":" + today.getMinutes();
     }
 
 }

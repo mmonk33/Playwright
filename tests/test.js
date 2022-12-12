@@ -16,7 +16,7 @@ test('Test 2. Timepicker', async ({ page }) => {
     await TimePickerPage.pick_time_now()
     await TimePickerPage.submit()
     await expect(TimePickerPage.getMessage).toBeVisible()
-    await expect(TimePickerPage.getSelectedTime.inputValue()).toHaveText(await TimePickerPage.current_time());
+    await expect(TimePickerPage.getSelectedTime).toHaveAttribute('value', await (TimePickerPage.current_time()));
 });
 test('Test 3. Twincolumn', async ({ page }) => {
     const TwinColumnPage = new TwinColumn(page);
