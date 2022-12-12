@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { TabPage } = require('../pages/tabs_page');
 const { TimePicker } = require('../pages/timepicker');
-const {TwinColumn} = require("../pages/twin_column");
+const { TwinColumn } = require("../pages/twin_column");
 
 test('Test 1. Tabs', async ({ page }) => {
     const Tabs_page = new TabPage(page);
@@ -24,4 +24,5 @@ test('Test 3. Twincolumn', async ({ page }) => {
     await TwinColumnPage.item_4_click()
     await expect(TwinColumnPage.getListItem4).toHaveClass(/eos-transfer-list-content-item-checked/)
     await TwinColumnPage.right_arrow_click()
+    await expect(TwinColumnPage.getRightArrow).toHaveClass(/disabled/)
 });
