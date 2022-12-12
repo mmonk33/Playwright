@@ -24,5 +24,6 @@ test('Test 3. Twincolumn', async ({ page }) => {
     await TwinColumnPage.item_4_click()
     await expect(TwinColumnPage.getListItem4).toHaveClass(/eos-transfer-list-content-item-checked/)
     await TwinColumnPage.right_arrow_click()
-    await expect(TwinColumnPage.getRightArrow).toHaveClass(/disabled/)
+    await expect(TwinColumnPage.getRightArrow).toHaveAttribute('disabled', '')
+    await expect(TwinColumnPage.getMovedItem).toContainText('{4}')
 });

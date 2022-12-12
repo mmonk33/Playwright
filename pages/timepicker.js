@@ -9,8 +9,6 @@ class TimePicker extends BasePage{
         this.ButtonSubmit = page.frameLocator('#storybook-preview-iframe').getByRole('button', { name: 'Submit' });
         this.getMessage = page.frameLocator('#storybook-preview-iframe').locator('span.eos-message__content');
         this.getSelectedTime = page.frameLocator('#storybook-preview-iframe').locator('input#basic_timepicker')
-        this.getTime = page.frameLocator('#storybook-preview-iframe').getByPlaceholder('Введите время')
-
     }
     async goto(url) {
         await this.page.goto(url);
@@ -32,7 +30,6 @@ class TimePicker extends BasePage{
         currentHours = ("0" + currentHours).slice(-2);
         return currentHours + ":" + today.getMinutes();
     }
-
 }
 
 module.exports = {TimePicker};
